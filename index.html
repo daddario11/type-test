@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">Typing Test</div>
+  <div class="header-right">
+    <div class="stats-bar">
+      <div>WPM <span class="stat-val" id="liveWpm">—</span></div>
+      <div>ACC <span class="stat-val" id="liveAcc">—</span></div>
+      <div>TIME <span class="stat-val" id="liveTime">—</span></div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" data-tooltip="Toggle Dark Mode">
+      <span class="theme-icon">☀️</span>
+    </button>
+  </div>
+</header>
+
+<div class="split">
+
+  <!-- LEFT: passage to read -->
+  <div class="pane left-pane">
+    <div class="pane-label">Read</div>
+    <div class="passage" id="passage"></div>
+  </div>
+
+  <!-- RIGHT: type here -->
+  <div class="pane right-pane">
+    <div class="pane-label">Type</div>
+
+    <div class="config-row" id="configRow">
+      <button class="pill active" data-mode="timed" data-val="30">30s</button>
+      <button class="pill" data-mode="timed" data-val="60">1m</button>
+      <button class="pill" data-mode="timed" data-val="180">3m</button>
+    </div>
+
+    <div class="underline-bar"></div>
+
+    <div class="typing-area" id="typingArea">
+      <div class="input-wrapper">
+        <textarea id="inputBox" placeholder="Start typing to begin…" spellcheck="false" autocorrect="off" autocapitalize="off"></textarea>
+      </div>
+
+      <div class="result" id="resultPanel">
+        <div class="result-label">words per minute</div>
+        <div class="result-wpm" id="finalWpm">0</div>
+        <div class="result-detail">
+          Accuracy <span id="finalAcc">0%</span> &nbsp;·&nbsp;
+          Correct <span id="finalCorrect">0</span> &nbsp;·&nbsp;
+          Errors <span id="finalErrors">0</span>
+        </div>
+        <div class="btn-row">
+          <button class="primary" id="retryBtn">Retry same</button>
+          <button id="newBtn">New passage</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="passages.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
